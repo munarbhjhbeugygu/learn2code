@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C# Цикл for операторы</title>
+    <link rel="icon" type="image/png" href="C:\Users\nursa\OneDrive\Рабочий стол\курсавооой\Logo-csharp-removebg-preview.png">
+    <script>
+        function checkAnswer(id, correctAnswer) {
+            var userAnswer = document.getElementById(id).value.trim();
+            if (userAnswer === correctAnswer) {
+                document.getElementById(id + 'Feedback').innerHTML = "Дұрыс!";
+                document.getElementById(id + 'Section').classList.remove('hidden');
+            } else {
+                document.getElementById(id + 'Feedback').innerHTML = "Қате. Қайталап көріңіз.";
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>C#: Цикл for операторы</h1>
+        <div class="instruction">
+            <p>Тапсырма 1: 1-ден 5-ке дейінгі сандарды басып шығару үшін for циклін қолданыңыз.</p>
+        </div>
+        <div class="code-area">
+            <pre><code># Циклді қолданыңыз
+for i in range(1, 6):
+    print(i)</code></pre>
+            <textarea id="task1" class="input-area" rows="4" placeholder="Кодыңызды мұнда енгізіңіз"></textarea>
+        </div>
+        <button class="button" onclick="checkAnswer('task1', 'for i in range(1, 6):\n    print(i)')">Тексеру</button>
+        <div id="task1Feedback" class="feedback"></div>
+
+        <div id="task1Section" class="hidden">
+            <div class="instruction">
+                <p>Тапсырма 2: Сандар тізімін (1, 2, 3, 4, 5) пайдаланып, олардың квадратының мәнін басып шығарыңыз.</p>
+            </div>
+            <div class="code-area">
+                <pre><code># Сандар тізімін пайдалану
+numbers = [1, 2, 3, 4, 5]
+for num in numbers:
+    print(num ** 2)</code></pre>
+                <textarea id="task2" class="input-area" rows="4" placeholder="Кодыңызды мұнда енгізіңіз"></textarea>
+            </div>
+            <button class="button" onclick="checkAnswer('task2', 'numbers = [1, 2, 3, 4, 5]\nfor num in numbers:\n    print(num ** 2)')">Тексеру</button>
+            <div id="task2Feedback" class="feedback"></div>
+
+            <div id="task2Section" class="hidden">
+                <div class="instruction">
+                    <p>Тапсырма 3: 10-нан 1-ге дейінгі сандарды кері ретпен басып шығарыңыз.</p>
+                </div>
+                <div class="code-area">
+                    <pre><code># Кері ретпен басып шығару
+for i in range(10, 0, -1):
+    print(i)</code></pre>
+                    <textarea id="task3" class="input-area" rows="4" placeholder="Кодыңызды мұнда енгізіңіз"></textarea>
+                </div>
+                <button class="button" onclick="checkAnswer('task3', 'for i in range(10, 0, -1):\n    print(i)')">Тексеру</button>
+                <div id="task3Feedback" class="feedback"></div>
+
+                <div id="task3Section" class="hidden">
+                    <div class="instruction">
+                        <p>Тапсырма 4: Сөзді (word) әр әріппен бірге жаңа жолға басып шығарыңыз.</п>
+                    </div>
+                    <div class="code-area">
+                        <pre><code># Әр әріппен басып шығару
+word = 'Python'
+for char in word:
+    print(char)</code></pre>
+                        <textarea id="task4" class="input-area" rows="4" placeholder="Кодыңызды мұнда енгізіңіз"></textarea>
+                    </div>
+                    <button class="button" onclick="checkAnswer('task4', 'word = \'Python\'\nfor char in word:\n    print(char)')">Тексеру</button>
+                    <div id="task4Feedback" class="feedback"></div>
+
+                    <div id="task4Section" class="hidden">
+                        <div class="instruction">
+                            <p>Тапсырма 5: 1-ден 10-ға дейінгі сандардың қосындысын есептеп, нәтижесін басып шығарыңыз.</п>
+                        </div>
+                        <div class="code-area">
+                            <pre><code># Сандардың қосындысын есептеу
+total = 0
+for i in range(1, 11):
+    total += i
+print(total)</code></pre>
+                            <textarea id="task5" class="input-area" rows="4" placeholder="Кодыңызды мұнда енгізіңіз"></textarea>
+                        </div>
+                        <button class="button" onclick="checkAnswer('task5', 'total = 0\nfor i in range(1, 11):\n    total += i\nprint(total)')">Тексеру</button>
+                        <div id="task5Feedback" class="feedback"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 60%;
+            margin: auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .instruction {
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+        .code-area {
+            background-color: #f4f4f4;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+        .input-area {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .button {
+            display: block;
+            width: 150px;
+            padding: 10px;
+            background-color: #757F9A;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            font-size: 16px;
+        }
+        .hidden {
+            display: none;
+        }
+        .feedback {
+            font-size: 18px;
+            margin-top: 20px;
+        }
+    </style>
+</body>
+</html>

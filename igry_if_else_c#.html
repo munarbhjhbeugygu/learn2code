@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C#: шартты операторлар бойынша саяхат</title>
+    <link rel="icon" type="image/png" href="C:\Users\nursa\OneDrive\Рабочий стол\курсавооой\Logo-csharp-removebg-preview.png">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            text-align: center;
+            background-color: #f2f2f2;
+        }
+        .game-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .stage {
+            margin: 20px 0;
+        }
+        .result {
+            font-size: 18px;
+            margin-top: 20px;
+        }
+        button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 5px;
+            background-color: #757F9A;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #5C6676;
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <h1>C#: шартты операторлар бойынша саяхат</h1>
+        <div id="stageContainer"></div>
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        let stages = [
+            {
+                question: "Қайсысы дұрыс if операторының синтаксисі?",
+                options: ["if x = 10", "if (x == 10)", "if x == 10 then"],
+                correctAnswer: "if (x == 10)"
+            },
+            {
+                question: "Қайсысы теріс шартты тексеру үшін қолданылады?",
+                options: ["==", "!", "!="],
+                correctAnswer: "!="
+            },
+            {
+                question: "Төмендегі қай шарт дұрыс?",
+                options: ["if (x = 5)", "if (x === 5)", "if (x == 5)"],
+                correctAnswer: "if (x == 5)"
+            },
+            {
+                question: "else if блогы қайда қолданылады?",
+                options: ["if блогының алдында", "if блогының ішінде", "if блогынан кейін"],
+                correctAnswer: "if блогынан кейін"
+            }
+        ];
+
+        let currentStage = 0;
+
+        function loadStage() {
+            if (currentStage >= stages.length) {
+                document.getElementById("stageContainer").innerHTML = "<h2>Құттықтаймыз! Сіз барлық кезеңдерді аяқтадыңыз.</h2>";
+                return;
+            }
+
+            let stage = stages[currentStage];
+            let stageHtml = `<div class="stage">
+                <h2>${stage.question}</h2>
+                <div>`;
+
+            stage.options.forEach(option => {
+                stageHtml += `<button onclick="checkAnswer('${option}')">${option}</button>`;
+            });
+
+            stageHtml += `</div></div>`;
+
+            document.getElementById("stageContainer").innerHTML = stageHtml;
+        }
+
+        function checkAnswer(answer) {
+            let result = document.getElementById("result");
+
+            if (answer === stages[currentStage].correctAnswer) {
+                result.innerText = "Дұрыс!";
+                currentStage++;
+                setTimeout(() => {
+                    result.innerText = "";
+                    loadStage();
+                }, 2000);
+            } else {
+                result.innerText = "Қате. Тағы да қайталап көріңіз.";
+            }
+        }
+
+        loadStage();
+    </script>
+</body>
+</html>

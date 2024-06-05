@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C#: енгізу және шығару бойынша саяхат</title>
+        <link rel="icon" type="image/png" href="C:\Users\nursa\OneDrive\Рабочий стол\курсавооой\Logo-csharp-removebg-preview.png">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            text-align: center;
+            background-color: #f2f2f2;
+        }
+        .game-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .stage {
+            margin: 20px 0;
+        }
+        .result {
+            font-size: 18px;
+            margin-top: 20px;
+        }
+        button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 5px;
+            background-color: #757F9A;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #5C6676;
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <h1>C#: енгізу және шығару бойынша саяхат</h1>
+        <div id="stageContainer"></div>
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        let stages = [
+            {
+                question: "Шығару операторы?",
+                options: ["write();", "input();", "print();"],
+                correctAnswer: "print();"
+            },
+            {
+                question: "Қай оператор деректерді пайдаланушыдан енгізуді сұрайды?",
+                options: ["read();", "input();", "get();"],
+                correctAnswer: "input();"
+            },
+            {
+                question: "print() функциясында бірден бірнеше мәнді шығару үшін қандай параметрді қолдануға болады?",
+                options: ["sep", "end", "join"],
+                correctAnswer: "sep"
+            },
+            {
+                question: "input() функциясы қандай типтегі мәнді қайтарады?",
+                options: ["int", "float", "str"],
+                correctAnswer: "str"
+            },
+            {
+                question: "Пайдаланушының енгізген мәнін бүтін санға қалай түрлендіруге болады?",
+                options: ["int(input())", "str(input())", "float(input())"],
+                correctAnswer: "int(input())"
+            },
+            {
+                question: "print() функциясында жол соңындағы символды өзгерту үшін қандай параметрді қолдануға болады?",
+                options: ["sep", "end", "finish"],
+                correctAnswer: "end"
+            },
+            {
+                question: "Пайдаланушының енгізген мәнін қалай алу керек?",
+                options: ["get()", "input()", "read()"],
+                correctAnswer: "input()"
+            },
+            {
+                question: "input() функциясымен алынған деректердің әдепкі типі қандай?",
+                options: ["str", "int", "float"],
+                correctAnswer: "str"
+            },
+        ];
+
+        let currentStage = 0;
+
+function loadStage() {
+    if (currentStage >= stages.length) {
+        document.getElementById("stageContainer").innerHTML = "<h2>Құттықтаймыз! Сіз барлық кезеңдерді аяқтадыңыз.</h2>";
+        return;
+    }
+
+    let stage = stages[currentStage];
+    let stageHtml = `<div class="stage">
+        <h2>${stage.question}</h2>
+        <div>`;
+
+    stage.options.forEach(option => {
+        stageHtml += `<button onclick="checkAnswer('${option}')">${option}</button>`;
+    });
+
+    stageHtml += `</div></div>`;
+
+    document.getElementById("stageContainer").innerHTML = stageHtml;
+}
+
+function checkAnswer(answer) {
+    let result = document.getElementById("result");
+
+    if (answer === stages[currentStage].correctAnswer) {
+        result.innerText = "Дұрыс!";
+        currentStage++;
+        setTimeout(() => {
+            result.innerText = "";
+            loadStage();
+        }, 2000);
+    } else {
+        result.innerText = "Қате. Тағы да қайталап көріңіз.";
+    }
+}
+loadStage();
+    </script>
+</body>
+</html>

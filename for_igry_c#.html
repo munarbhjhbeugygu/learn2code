@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C#: цикл for операторы бойынша саяхат</title>
+        <link rel="icon" type="image/png" href="C:\Users\nursa\OneDrive\Рабочий стол\курсавооой\Logo-csharp-removebg-preview.png">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            text-align: center;
+            background-color: #f2f2f2;
+        }
+        .game-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .stage {
+            margin: 20px 0;
+        }
+        .result {
+            font-size: 18px;
+            margin-top: 20px;
+        }
+        button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 5px;
+            background-color: #757F9A;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #5C6676;
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <h1>C#: цикл for операторы бойынша саяхат</h1>
+        <div id="stageContainer"></div>
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        let stages = [
+            {
+                question: "Төмендегі мәлімдемелердің қайсысы C# тіліндегі for циклын дұрыс сипаттайды?",
+                options: ["for циклы тек тізімдерді қайталау үшін қолданылады.", "for циклы диапазондағы мәндерді қайталау үшін қолданылады.", "for циклы тек сандарды қайталау үшін қолданылады.", "for циклы тек жолдарды қайталау үшін қолданылады."],
+                correctAnswer: "for циклы диапазондағы мәндерді қайталау үшін қолданылады."
+            },
+            {
+                question: "Төмендегілердің қайсысы for циклын қолданудың дұрыс әдісі болып табылады?",
+                options: ["for i in 10: print(i)", "for i in range(10): print(i)", "for i to 10: print(i)", "for i = 10: print(i)"],
+                correctAnswer: "for i in range(10): print(i)"
+            },
+            {
+                question: "for циклында break операторы не үшін қолданылады?",
+                options: ["for циклын басынан бастау үшін", "for циклын аяқтау үшін", "for циклын бір қадамға алға жылжыту үшін", "for циклын екі қадамға артқа жылжыту үшін"],
+                correctAnswer: "for циклын аяқтау үшін"
+            },
+            {
+                question: "for циклында continue операторы не үшін қолданылады?",
+                options: ["циклды тоқтату үшін", "циклдың келесі итерациясына өту үшін", "циклдың ағымдағы итерациясын қайталау үшін", "циклды басынан бастау үшін"],
+                correctAnswer: "циклдың келесі итерациясына өту үшін"
+            },
+            {
+                question: "Төмендегі for циклынан қайсысы 1-ден 10-ға дейінгі сандарды басып шығарады?",
+                options: ["for i in range(1, 11): print(i)", "for i in range(1, 10): print(i)", "for i in range(10): print(i)", "for i in range(11): print(i)"],
+                correctAnswer: "for i in range(1, 11): print(i)"
+            }
+        ];
+
+        let currentStage = 0;
+
+        function loadStage() {
+            if (currentStage >= stages.length) {
+                document.getElementById("stageContainer").innerHTML = "<h2>Құттықтаймыз! Сіз барлық кезеңдерді аяқтадыңыз.</h2>";
+                return;
+            }
+
+            let stage = stages[currentStage];
+            let stageHtml = `<div class="stage">
+                <h2>${stage.question}</h2>
+                <div>`;
+
+            stage.options.forEach(option => {
+                stageHtml += `<button onclick="checkAnswer('${option}')">${option}</button>`;
+            });
+
+            stageHtml += `</div></div>`;
+
+            document.getElementById("stageContainer").innerHTML = stageHtml;
+        }
+
+        function checkAnswer(answer) {
+            let result = document.getElementById("result");
+
+            if (answer === stages[currentStage].correctAnswer) {
+                result.innerText = "Дұрыс!";
+                currentStage++;
+                setTimeout(() => {
+                    result.innerText = "";
+                    loadStage();
+                }, 2000);
+            } else {
+                result.innerText = "Қате. Тағы да қайталап көріңіз.";
+            }
+        }
+        loadStage();
+    </script>
+</body>
+</html>

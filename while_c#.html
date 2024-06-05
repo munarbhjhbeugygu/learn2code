@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C#: Цикл while операторы</title>
+    <link rel="icon" type="image/png" href="C:\Users\nursa\OneDrive\Рабочий стол\курсавооой\Logo-csharp-removebg-preview.png">
+    <script>
+        function checkAnswer(id, correctAnswer) {
+            var userAnswer = document.getElementById(id).value.trim();
+            if (userAnswer === correctAnswer) {
+                document.getElementById(id + 'Feedback').innerHTML = "Дұрыс!";
+                document.getElementById(id + 'Section').classList.remove('hidden');
+            } else {
+                document.getElementById(id + 'Feedback').innerHTML = "Қате. Қайталап көріңіз.";
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>c#C#: Цикл while операторы</h1>
+        <div class="instruction">
+            <p>Тапсырма 1: 1-ден 5-ке дейінгі сандарды while циклын пайдаланып шығарыңыз.</p>
+        </div>
+        <div class="code-area">
+            <pre><code># Сандарды шығарыңыз
+i = 1
+while i <= 5:
+    print(i)
+    i += 1</code></pre>
+            <textarea id="task1" class="input-area" rows="6" placeholder="Кодыңызды мұнда енгізіңіз"></textarea>
+        </div>
+        <button class="button" onclick="checkAnswer('task1', 'i = 1\nwhile i <= 5:\n    print(i)\n    i += 1')">Тексеру</button>
+        <div id="task1Feedback" class="feedback"></div>
+
+        <div id="task1Section" class="hidden">
+            <div class="instruction">
+                <p>Тапсырма 2: 10-нан бастап 1-ге дейінгі сандарды while циклын пайдаланып кері ретпен шығарыңыз.</p>
+            </div>
+            <div class="code-area">
+                <pre><code># Сандарды кері ретпен шығарыңыз
+i = 10
+while i > 0:
+    print(i)
+    i -= 1</code></pre>
+                <textarea id="task2" class="input-area" rows="6" placeholder="Кодыңызды мұнда енгізіңіз"></textarea>
+            </div>
+            <button class="button" onclick="checkAnswer('task2', 'i = 10\nwhile i > 0:\n    print(i)\n    i -= 1')">Тексеру</button>
+            <div id="task2Feedback" class="feedback"></div>
+
+            <div id="task2Section" class="hidden">
+                <div class="instruction">
+                    <p>Тапсырма 3: while циклын пайдаланып, 20-ға дейінгі барлық жұп сандарды шығарыңыз.</п>
+                </div>
+                <div class="code-area">
+                    <pre><code># Жұп сандарды шығарыңыз
+i = 2
+while i <= 20:
+    print(i)
+    i += 2</code></pre>
+                    <textarea id="task3" class="input-area" rows="6" placeholder="Кодыңызды мұнда енгізіңіз"></textarea>
+                </div>
+                <button class="button" onclick="checkAnswer('task3', 'i = 2\nwhile i <= 20:\n    print(i)\n    i += 2')">Тексеру</button>
+                <div id="task3Feedback" class="feedback"></div>
+
+                <div id="task3Section" class="hidden">
+                    <div class="instruction">
+                        <p>Тапсырма 4: while циклын пайдаланып, сандарды енгізу арқылы олардың қосындысын табыңыз. Теріс сан енгізілгенде циклды тоқтатыңыз.</п>
+                    </div>
+                    <div class="code-area">
+                        <pre><code># Қосындыны табыңыз
+total = 0
+while True:
+    num = int(input())
+    if num < 0:
+        break
+    total += num
+print(total)</code></pre>
+                        <textarea id="task4" class="input-area" rows="6" placeholder="Кодыңызды мұнда енгізіңіз"></textarea>
+                    </div>
+                    <button class="button" onclick="checkAnswer('task4', 'total = 0\nwhile True:\n    num = int(input())\n    if num < 0:\n        break\n    total += num\nprint(total)')">Тексеру</button>
+                    <div id="task4Feedback" class="feedback"></div>
+
+                    <div id="task4Section" class="hidden">
+                        <div class="instruction">
+                            <p>Тапсырма 5: Бір while циклында айнымалыны пайдаланып, 1-ден 50-ге дейінгі барлық тақ сандарды шығарыңыз.</п>
+                        </div>
+                        <div class="code-area">
+                            <pre><code># Тақ сандарды шығарыңыз
+i = 1
+while i <= 50:
+    if i % 2 != 0:
+        print(i)
+    i += 1</code></pre>
+                            <textarea id="task5" class="input-area" rows="6" placeholder="Кодыңызды мұнда енгізіңіз"></textarea>
+                        </div>
+                        <button class="button" onclick="checkAnswer('task5', 'i = 1\nwhile i <= 50:\n    if i % 2 != 0:\n        print(i)\n    i += 1')">Тексеру</button>
+                        <div id="task5Feedback" class="feedback"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 60%;
+            margin: auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .instruction {
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+        .code-area {
+            background-color: #f4f4f4;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+        .input-area {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .button {
+            display: block;
+            width: 150px;
+            padding: 10px;
+            background-color: #757F9A;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            font-size: 16px;
+        }
+        .hidden {
+            display: none;
+        }
+        .feedback {
+            font-size: 18px;
+            margin-top: 20px;
+        }
+    </style>
+</body>
+</html>
